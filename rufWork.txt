@@ -1,0 +1,50 @@
+var user = {
+    name: 'Andrew',
+    age: 26,
+    location: 'Toronto'
+};
+function getLocation(location){
+    if (location){
+        return <p>Location: {location}</p>;
+    } else {
+        return undefined;
+    }
+}
+var tmpEX = (
+    <div>
+        <h1>{user.name ? user.name : 'Anonynous'}</h1>
+        {(user.age && user.age >= 18) && <p>Age : {user.age}</p>}
+        {getLocation(user.location)}
+    </div>
+);
+____________________________
+
+let count = 0;
+const addOne = () => {
+    count ++;
+    renderCounter();
+}
+const minusOne = () => {
+    count--;
+    renderCounter();
+};
+const reset = () => {
+    count=0;
+    renderCounter();
+};
+
+
+
+const renderCounter = () => {
+    const template2 = (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={addOne} className='button'>+1</button>
+            <button onClick={minusOne} className='button'>-1</button>
+            <button onClick={reset} className='button'>reset</button>
+        </div>
+    );
+    ReactDOM.render(template2, appRoot);
+};
+
+renderCounter();
